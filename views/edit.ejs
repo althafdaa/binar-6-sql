@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/dashboard"><button>back to dashboard</button></a>
+
+    <form action="/user/edit/<%= bio.userId%>?_method=PUT" method="POST">
+      <input
+        type="text"
+        placeholder="Nama"
+        name="fullName"
+        value=" <%= bio.fullName%>"
+      />
+      <input
+        type="text"
+        placeholder="Hobi"
+        name="hobby"
+        value=" <%= bio.hobby%>"
+      />
+
+      <button>Edit Data</button>
+    </form>
+  </body>
+</html>

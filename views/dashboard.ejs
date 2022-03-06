@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>DASHBOARD PAGE</h1>
+    <form action="/dashboard" method="POST">
+      <input type="text" placeholder="Nama" name="fullName" />
+      <input type="text" placeholder="Hobi" name="hobby" />
+      <input type="number" placeholder="win" name="win" />
+      <input type="number" placeholder="lose" name="lose" />
+      <button>Add Data</button>
+    </form>
+
+    <h2>User Data</h2>
+    <ul>
+      <% bio.forEach(databio => { %>
+      <li>
+        <p>Nama: <%= databio.fullName %></p>
+        <p>Hobby: <%= databio.hobby %></p>
+
+        <a href="/user/<%= databio.userId %>"><button>Details Data</button></a>
+
+        <a href="/user/delete/<%= databio.userId %>"
+          ><button>Delete Data</button>
+        </a>
+      </li>
+
+      <% }) %>
+    </ul>
+  </body>
+</html>
