@@ -4,26 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Edit Data</title>
   </head>
   <body>
-    <a href="/dashboard"><button>back to dashboard</button></a>
+    <main class="container mx-auto px-4 py-6">
+      <a
+        class="px-4 py-2 bg-sky-500 text-white rounded-lg shadow-lg font-semibold hover:bg-sky-700 transition-all"
+        href="/dashboard"
+        >Dashboard</a
+      >
+      <h1 class="text-2xl font-bold text-center mb-4">Edit Details</h1>
 
-    <form action="/user/edit/<%= bio.userId%>?_method=PUT" method="POST">
-      <input
-        type="text"
-        placeholder="Nama"
-        name="fullName"
-        value=" <%= bio.fullName%>"
-      />
-      <input
-        type="text"
-        placeholder="Hobi"
-        name="hobby"
-        value=" <%= bio.hobby%>"
-      />
+      <form
+        class="w-1/2 mx-auto flex flex-col"
+        action="/user/edit/<%= bio.userId%>?_method=PUT"
+        method="POST"
+      >
+        <div class="flex items-center w-full mb-4 gap-3">
+          <label for="username">Name</label>
+          <input
+            class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+            type="text"
+            placeholder="Nama"
+            name="fullName"
+            value=" <%= bio.fullName%>"
+          />
+        </div>
 
-      <button>Edit Data</button>
-    </form>
+        <div class="flex items-center w-full mb-4 gap-5">
+          <label for="username">Hobi</label>
+          <input
+            class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+            placeholder="Hobi"
+            name="hobby"
+            value=" <%= bio.hobby%>"
+          />
+        </div>
+
+        <button
+          class="px-4 py-2 bg-sky-500 text-white w-[8rem] self-center rounded-lg shadow-lg font-semibold hover:bg-sky-700 transition-all"
+          type="submit"
+        >
+          Edit
+        </button>
+      </form>
+    </main>
   </body>
 </html>

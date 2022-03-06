@@ -4,33 +4,85 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title><%= title %></title>
   </head>
   <body>
-    <h1>DASHBOARD PAGE</h1>
-    <form action="/dashboard" method="POST">
-      <input type="text" placeholder="Nama" name="fullName" />
-      <input type="text" placeholder="Hobi" name="hobby" />
-      <input type="number" placeholder="win" name="win" />
-      <input type="number" placeholder="lose" name="lose" />
-      <button>Add Data</button>
-    </form>
+    <main class="container px-4 py-6 mx-auto">
+      <h1 class="text-2xl font-bold text-center mb-4">DASHBOARD</h1>
+      <section class="grid grid-cols-2 gap-4">
+        <div>
+          <h2 class="text-center mb-4 text-xl font-semibold">
+            Add to Database
+          </h2>
+          <form
+            class="flex flex-col items-center justify-center w-1/2 mx-auto gap-2"
+            action="/dashboard"
+            method="POST"
+          >
+            <input
+              class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+              type="text"
+              placeholder="Nama"
+              name="fullName"
+            />
+            <input
+              class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+              type="text"
+              placeholder="Hobi"
+              name="hobby"
+            />
+            <input
+              class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+              type="number"
+              placeholder="Win count"
+              name="win"
+            />
+            <input
+              class="p-2 outline-2 border-2 w-full rounded-lg shadow"
+              type="number"
+              placeholder="Lose count"
+              name="lose"
+            />
+            <button
+              class="px-4 py-2 bg-sky-500 text-white rounded-lg shadow-lg font-semibold hover:bg-sky-700 transition-all"
+            >
+              Add Data
+            </button>
+          </form>
+        </div>
 
-    <h2>User Data</h2>
-    <ul>
-      <% bio.forEach(databio => { %>
-      <li>
-        <p>Nama: <%= databio.fullName %></p>
-        <p>Hobby: <%= databio.hobby %></p>
+        <div>
+          <h2 class="text-center mb-4 text-xl font-semibold">User Data</h2>
+          <ul class="grid gap-4">
+            <% bio.forEach(databio => { %>
+            <li
+              class="shadow-lg rounded p-4 flex justify-between items-center border-l-4 border-green-700"
+            >
+              <div>
+                <p>Nama: <%= databio.fullName %></p>
+                <p>Hobby: <%= databio.hobby %></p>
+              </div>
 
-        <a href="/user/<%= databio.userId %>"><button>Details Data</button></a>
+              <div class="flex gap-4 items-center">
+                <a
+                  class="px-4 py-2 bg-green-500 rounded shadow text-white font-semibold hover:bg-green-700 transition-all"
+                  href="/user/<%= databio.userId %>"
+                  >Details</a
+                >
 
-        <a href="/user/delete/<%= databio.userId %>"
-          ><button>Delete Data</button>
-        </a>
-      </li>
+                <a
+                  class="px-4 py-2 bg-red-500 rounded shadow text-white font-semibold hover:bg-red-700 transition-all"
+                  href="/user/delete/<%= databio.userId %>"
+                  >Delete
+                </a>
+              </div>
+            </li>
 
-      <% }) %>
-    </ul>
+            <% }) %>
+          </ul>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

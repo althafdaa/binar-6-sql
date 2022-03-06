@@ -4,15 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>User Details</title>
   </head>
   <body>
-    <a href="/dashboard"><button>back to dashboard</button></a>
-    <h1>Details Data</h1>
-    <p>Nama: <%= bio.fullName%></p>
-    <p>Hobby: <%= bio.hobby%></p>
-    <p>Win: <%= history.win%></p>
-    <p>Lose: <%= history.lose%></p>
-    <a href="/user/edit/<%= bio.userId%>"><button>Edit Data</button></a>
+    <main class="container mx-auto px-4 py-6">
+      <a
+        class="px-4 py-2 bg-sky-500 text-white rounded-lg shadow-lg font-semibold hover:bg-sky-700 transition-all"
+        href="/dashboard"
+        >Dashboard</a
+      >
+      <h1 class="text-2xl font-bold text-center mb-4">User Details</h1>
+      <div class="w-1/2 mx-auto grid gap-4">
+        <div
+          class="w-full mx-auto flex gap-4 items-center justify-between shadow rounded-lg p-4"
+        >
+          <div>
+            <p>Nama: <%= bio.fullName%></p>
+            <p>Hobby: <%= bio.hobby%></p>
+          </div>
+
+          <div>
+            <p>Win: <%= history.win%></p>
+            <p>Lose: <%= history.lose%></p>
+          </div>
+        </div>
+        <a
+          class="px-4 py-2 w-[8rem] bg-sky-500 text-center text-white rounded-lg shadow-lg font-semibold hover:bg-sky-700 transition-all mx-auto"
+          href="/user/edit/<%= bio.userId%>"
+          >Edit Data</a
+        >
+      </div>
+    </main>
   </body>
 </html>

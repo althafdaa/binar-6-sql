@@ -3,7 +3,7 @@
 Binar Academy Chapter 6 challenge, login + CRUD to postgresSQL with sequelize
 have 3 tables with hastomany -> belongsto association
 
-[demo aplikasi](https://youtu.be/gONCVznuyoQ)
+[demo aplikasi](https://youtu.be/tcdBc1TswtE)
 
 ## How to install
 
